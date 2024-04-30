@@ -34,7 +34,7 @@ export async function middleware (request: NextRequest) {
         } 
       })
       const data = await res.json()
-      if (data.userId !== userId ) {
+      if (data.userId !== userId) {
         // console.log(request.cookies.delete("token"),
         // request.cookies.delete("userId"))
         return NextResponse.redirect(new URL('/login', request.url))

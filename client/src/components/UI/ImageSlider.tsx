@@ -35,22 +35,24 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageUrl }) => {
         >
           <LeftArrowCircle size={25} />
         </div>
-        <div className="relative w-full h-[450px]">
+        <div className="relative w-full h-[450px] flex overflow-hidden">
           {imageUrl &&
             imageUrl.length &&
             imageUrl.map((image, index: number) => (
               <Image
                 key={index}
-                fill
-                // width={1000}
-                // height={500}
+                // fill
+                width={700}
+                height={500}
                 src={image.url}
                 alt={`#product-image - ${index + 1}`}
-                className={
-                  currentSlide === index
-                    ? "object-cover rounded-md"
-                    : "object-cover rounded-md hidden"
-                }
+                style={{ translate: `${-100 * currentSlide}%` }}
+                className={`rounded-xl m-2 transition-all duration-300`}
+                // className={
+                //   currentSlide === index
+                //     ? "object-cover rounded-md"
+                //     : "object-cover rounded-md"
+                // }
               />
             ))}
         </div>
@@ -75,8 +77,8 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageUrl }) => {
                 onMouseMove={() => setCurrentSlide(index)}
                 className={
                   currentSlide === index
-                    ? "object-cover rounded-md ring-2 ring-blue-500 ring-offset-2"
-                    : "object-cover rounded-md"
+                    ? "object-cover rounded-md ring-2 w-[80px] h-[50px] ring-blue-500 ring-offset-2"
+                    : "object-cover rounded-md w-[80px] h-[50px]"
                 }
               />
             ))}

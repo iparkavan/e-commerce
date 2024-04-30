@@ -99,7 +99,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between gap-3">
           <label
             className={`flex items-center justify-center p-2 bg-white/80 backdrop-blur-md rounded-full cursor-pointer`}
-            onClick={() => setWidth("200px")}
+            onClick={() => setWidth("250px")}
             ref={closeSearchRef}
             htmlFor="search-input"
           >
