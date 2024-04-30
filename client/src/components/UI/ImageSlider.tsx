@@ -30,34 +30,36 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ imageUrl }) => {
     <div className="flex flex-col gap-4">
       <div className="relative flex items-center justify-center">
         <div
-          className="absolute left-5 z-10 text-gray-500 drop-shadow-sm active:drop-shadow-xl cursor-pointer rounded-full transition-all duration-300 active:ring-2 ring-gray-500"
+          className="absolute left-5 z-20 text-gray-500 drop-shadow-sm active:drop-shadow-xl cursor-pointer rounded-full transition-all duration-300 active:ring-2 ring-gray-500"
           onClick={handleLeft}
         >
           <LeftArrowCircle size={25} />
         </div>
-        <div className="relative w-full h-[450px] flex overflow-hidden">
-          {imageUrl &&
-            imageUrl.length &&
-            imageUrl.map((image, index: number) => (
-              <Image
-                key={index}
-                // fill
-                width={700}
-                height={500}
-                src={image.url}
-                alt={`#product-image - ${index + 1}`}
-                style={{ translate: `${-100 * currentSlide}%` }}
-                className={`rounded-xl m-2 transition-all duration-300`}
-                // className={
-                //   currentSlide === index
-                //     ? "object-cover rounded-md"
-                //     : "object-cover rounded-md"
-                // }
-              />
-            ))}
+        <div>
+          <div className="relative w-full p-16 items-center  h-[450px] flex overflow-hidden">
+            {imageUrl &&
+              imageUrl.length &&
+              imageUrl.map((image, index: number) => (
+                <Image
+                  key={index}
+                  // fill
+                  width={1500}
+                  height={500}
+                  src={image.url}
+                  alt={`#product-image - ${index + 1}`}
+                  style={{ translate: `${-100 * currentSlide}%` }}
+                  // className={`rounded-xl m-2 object-cover transition-all duration-300`}
+                  className={
+                    currentSlide === index
+                      ? "object-cover rounded-md transition-all scale-105 z-10 duration-300"
+                      : "object-cover rounded-md transition-all duration-300 scale-90"
+                  }
+                />
+              ))}
+          </div>
         </div>
         <div
-          className="absolute right-5 z-10 active:drop-shadow-xl text-gray-500 drop-shadow-sm cursor-pointer rounded-full transition-all duration-300 active:ring-2 ring-gray-500"
+          className="absolute right-5 z-20 active:drop-shadow-xl text-gray-500 drop-shadow-sm cursor-pointer rounded-full transition-all duration-300 active:ring-2 ring-gray-500"
           onClick={handleRight}
         >
           <RightArrowCircle size={25} />
